@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - TouchProof: Screen Touch & Ear Lock</title>
+    <link rel="icon" type="image/png" href="assets/icon_512.png">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --text-main: #f9fafb;
+            --text-dim: #9ca3af;
+            --accent-cyan: #06b6d4;
+            --accent-cyan-glow: rgba(6, 182, 212, 0.25);
+            --border-color: #1f2937;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            box-shadow: 0 0 20px var(--accent-cyan-glow);
+        }
+
+        h1 {
+            font-size: 1.85rem;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .updated-badge {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            margin-top: 0.3rem;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--accent-cyan);
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        p, ul {
+            color: var(--text-dim);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+
+        li strong {
+            color: var(--text-main);
+        }
+
+        .highlight-box {
+            background: rgba(6, 182, 212, 0.05);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to TouchProof Home</a>
+
+        <div class="header">
+            <img src="assets/icon_512.png" alt="TouchProof Logo" class="logo">
+            <div>
+                <h1>Privacy Policy</h1>
+                <span class="updated-badge">Last Updated: October 27, 2026</span>
+            </div>
+        </div>
+
+        <p><strong>TouchProof</strong> ("we", "our", or "the app") is a privacy-first utility application designed to prevent accidental touchscreen touches while your device is in a pocket, bag, or during active voice calls and media playback.</p>
+
+        <div class="highlight-box">
+            <p>100% Offline &amp; Zero Tracking: TouchProof does NOT collect, store, transmit, or share any personal information, usage metrics, or unique device identifiers.</p>
+        </div>
+
+        <h2>1. No Personal Data Collection</h2>
+        <p>TouchProof is built on a local-only architecture:</p>
+        <ul>
+            <li>We do <strong>not</strong> collect, store, or sell any personal data.</li>
+            <li>We do <strong>not</strong> collect unique device identifiers, advertising IDs, IP addresses, or location data.</li>
+            <li>The application does <strong>not</strong> integrate third-party analytics (such as Google Analytics or Firebase), tracking SDKs, or advertising networks.</li>
+        </ul>
+
+        <h2>2. Device Permissions &amp; Transparency</h2>
+        <p>TouchProof requests only the minimum set of permissions necessary to deliver its core touch-blocking capabilities:</p>
+        <ul>
+            <li><strong>Display over other apps (SYSTEM_ALERT_WINDOW):</strong> Used strictly to draw a non-intrusive transparent touch shield over running apps, intercepting and blocking accidental touches. No screen contents, keystrokes, or display pixels are recorded.</li>
+            <li><strong>Foreground Service (FOREGROUND_SERVICE &amp; SPECIAL_USE):</strong> Keeps the touch shield active while media or navigation runs in the background. An ongoing persistent notification is displayed while the shield is active, allowing you to dismiss it at any time.</li>
+            <li><strong>Notifications (POST_NOTIFICATIONS):</strong> Displays the required ongoing status notification so you can see TouchProof's active status and tap the 1-click "Stop" action directly from the Android notification shade.</li>
+            <li><strong>In-Call Ear Guard &amp; Audio Mode State:</strong> Detects system audio mode transitions (AudioManager) to automatically pause touch-blocking during incoming call ringing and re-arm touch blocking during active calls. TouchProof does <strong>not</strong> record audio, does <strong>not</strong> access call logs, and does <strong>not</strong> access contact information.</li>
+            <li><strong>Vibration (VIBRATE):</strong> Provides subtle tactile haptic feedback when you tap to unlock or when pocket sensor engages.</li>
+            <li><strong>Hardware Sensors (Proximity &amp; Accelerometer):</strong> Evaluates device proximity and orientation locally in real-time to determine when the device is inside a pocket or resting flat. Sensor data is processed entirely in volatile memory and is never logged or stored.</li>
+            <li><strong>Battery Optimization (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS):</strong> Allows the user to optionally exclude TouchProof from aggressive OEM background battery killers so touch protection is not unexpectedly terminated.</li>
+        </ul>
+
+        <h2>3. Zero Network Access</h2>
+        <p>TouchProof does <strong>not</strong> request or utilize internet access (<code>android.permission.INTERNET</code>). The app is 100% functional offline and has no technical mechanism to send data over the network.</p>
+
+        <h2>4. Children’s Privacy</h2>
+        <p>TouchProof does not knowingly collect any information from children under the age of 13. Because no personal data is collected from any user, TouchProof complies fully with COPPA and global child privacy regulations.</p>
+
+        <h2>5. Developer Contact</h2>
+        <p>If you have any questions or feedback regarding this Privacy Policy, please contact:</p>
+        <ul>
+            <li><strong>Developer Email:</strong> <a href="mailto:dev.shriramsingh@gmail.com">dev.shriramsingh@gmail.com</a></li>
+            <li><strong>Community &amp; Bug Reports:</strong> <a href="https://github.com/shriramsingh/touchproof-community/issues" target="_blank" rel="noopener">GitHub Issues Tracker</a></li>
+        </ul>
+
+        <div class="footer">
+            &copy; 2026 TouchProof. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

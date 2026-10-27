@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TouchProof - Armored Screen Touch & Ear Guard for Android</title>
+    <link rel="icon" type="image/png" href="assets/icon_512.png">
+    <style>
+        :root {
+            --bg-color: #07090e;
+            --surface-color: #0f1523;
+            --surface-card: #141c2e;
+            --border-color: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --cyan-accent: #00e5ff;
+            --cyan-glow: rgba(0, 229, 255, 0.25);
+            --emerald-accent: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .brand img {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            box-shadow: 0 0 12px var(--cyan-glow);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--cyan-accent);
+        }
+
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1e293b;
+            color: #fff;
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid #334155;
+            transition: all 0.2s;
+        }
+
+        .btn-github:hover {
+            background: #334155;
+            border-color: var(--cyan-accent);
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            color: var(--cyan-accent);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, var(--cyan-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-banner-container {
+            margin: 3rem auto;
+            max-width: 900px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.15);
+        }
+
+        .hero-banner-container img {
+            width: 100%;
+            display: block;
+        }
+
+        .features {
+            max-width: 1100px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 2rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 229, 255, 0.4);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .screenshots {
+            max-width: 1100px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .screenshot-grid img {
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+
+        .screenshot-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        .community-box {
+            max-width: 900px;
+            margin: 5rem auto;
+            background: linear-gradient(135deg, #111827 0%, #1e293b 100%);
+            border: 1px solid #334155;
+            border-radius: 18px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .community-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .community-box p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+        }
+
+        .btn-issue {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--cyan-accent);
+            color: #07090e;
+            padding: 0.8rem 1.75rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 20px var(--cyan-glow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-issue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--cyan-accent);
+            text-decoration: none;
+            margin: 0 0.75rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="brand">
+            <img src="assets/icon_512.png" alt="TouchProof Shield">
+            TouchProof
+        </a>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#screenshots">Screenshots</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="https://github.com/shriramsingh/touchproof-community/issues" target="_blank" rel="noopener" class="btn-github">
+                <span>Community &amp; Bugs</span> &rarr;
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-pill">&#x1F6E1;&#xFE0F; Armored Screen Touch &amp; Ear Guard</div>
+            <h1>Lock Touch &amp; Navigation.<br>Zero Accidental Mistouches.</h1>
+            <p>TouchProof draws an armored, transparent touch shield over your screen. Protect toddlers watching cartoons, joggers listening to YouTube, and phone calls against ear and cheek hangups.</p>
+
+            <div class="hero-banner-container">
+                <img src="assets/feature_graphic.png" alt="TouchProof Feature Banner">
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <h2 class="section-title">Engineered for Everyday Peace of Mind</h2>
+            <p class="section-sub">100% offline, privacy-first, zero battery drain when idle.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <span class="card-icon">&#x1F512;</span>
+                    <h3>1-Tap Touch Armor</h3>
+                    <p>Instantly locks screen touches, swipes, and navigation gestures. Videos, GPS navigation, and recipes remain 100% visible while touch inputs are blocked.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">&#x1F4DE;</span>
+                    <h3>Smart In-Call Ear Guard</h3>
+                    <p>Automatically shields your display during active phone calls. Prevents accidental mute, hold, keypad presses, or hangups from your ear and cheek.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">&#x1F4F1;</span>
+                    <h3>Dual-Sensor Pocket Detection</h3>
+                    <p>Fuses proximity and ambient light sensors to detect pockets or bags. Dims backlight to save battery and wakes immediately when uncovered.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">&#x26A1;</span>
+                    <h3>Quick Settings Tile</h3>
+                    <p>Toggle your touch shield directly from your Android notification tray with 1 tap, without opening the app.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">&#x1F513;</span>
+                    <h3>Permanent Bright Unlock</h3>
+                    <p>Floating Double-Tap or Triple-Tap button stays permanently visible by default so you can unlock smoothly without searching.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">&#x1F310;</span>
+                    <h3>100% Private &amp; Offline</h3>
+                    <p>No internet permission is ever requested. Zero analytics, zero telemetry, zero advertising SDKs. Completely private.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="screenshots" id="screenshots">
+            <h2 class="section-title">Clean, Modern Jetpack Compose UI</h2>
+            <p class="section-sub">Tested and optimized for Android 13 and Android 14+.</p>
+
+            <div class="screenshot-grid">
+                <img src="assets/screenshots/01_one_tap_lock.png" alt="1-Tap Lock Mode">
+                <img src="assets/screenshots/02_shield_active.png" alt="Shield Active & Guarded">
+                <img src="assets/screenshots/03_ear_guard.png" alt="Smart In-Call Ear Guard">
+                <img src="assets/screenshots/04_quick_tile.png" alt="Quick Settings Integration">
+            </div>
+        </section>
+
+        <section class="community-box">
+            <h2>Community &amp; Issue Reporting</h2>
+            <p>Found a device-specific quirk or want to request a feature? The TouchProof community repository is open for feedback, bug reports, and roadmap discussions.</p>
+            <a href="https://github.com/shriramsingh/touchproof-community/issues" target="_blank" rel="noopener" class="btn-issue">
+                Open GitHub Issues &rarr;
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TouchProof &bull; Developed by Shriram Singh</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="privacy.html">Privacy Policy</a> &bull;
+            <a href="https://github.com/shriramsingh/touchproof-community/issues" target="_blank" rel="noopener">Report Issue</a> &bull;
+            <a href="mailto:dev.shriramsingh@gmail.com">Contact Support</a>
+        </p>
+    </footer>
+</body>
+</html>
