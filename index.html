@@ -79,6 +79,58 @@
             color: var(--cyan-accent);
         }
 
+        .btn-store-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #6739b7 0%, #00e5ff 100%);
+            color: #fff;
+            padding: 0.45rem 1.15rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-store-nav:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+            color: #fff;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-store-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #5b21b6 0%, #0284c7 50%, #00e5ff 100%);
+            color: #fff;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.35);
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-store-hero:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.55);
+            color: #fff;
+        }
+
         .btn-github {
             display: inline-flex;
             align-items: center;
@@ -305,6 +357,9 @@
             <a href="#features">Features</a>
             <a href="#screenshots">Screenshots</a>
             <a href="privacy.html">Privacy Policy</a>
+            <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&id=com.touchproof.app" target="_blank" rel="noopener" class="btn-store-nav">
+                <span>🛍️ Get on Indus Appstore</span> &rarr;
+            </a>
             <a href="https://github.com/shriramsingh/touchproof-community/issues" target="_blank" rel="noopener" class="btn-github">
                 <span>Community &amp; Bugs</span> &rarr;
             </a>
@@ -316,6 +371,12 @@
             <div class="hero-pill">&#x1F6E1;&#xFE0F; Armored Screen Touch &amp; Ear Guard</div>
             <h1>Lock Touch &amp; Navigation.<br>Zero Accidental Mistouches.</h1>
             <p>TouchProof draws an armored, transparent touch shield over your screen. Protect toddlers watching cartoons, joggers listening to YouTube, and phone calls against ear and cheek hangups.</p>
+
+            <div class="hero-cta-group">
+                <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&id=com.touchproof.app" target="_blank" rel="noopener" class="btn-store-hero">
+                    <span>🛍️ Download on PhonePe Indus Appstore</span> &rarr;
+                </a>
+            </div>
 
             <div class="hero-banner-container">
                 <img src="assets/feature_graphic.png" alt="TouchProof Feature Banner">
@@ -389,6 +450,7 @@
     <footer>
         <p>&copy; 2026 TouchProof &bull; Developed by Shriram Singh</p>
         <p style="margin-top: 0.5rem;">
+            <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&id=com.touchproof.app" target="_blank" rel="noopener">Indus Appstore</a> &bull;
             <a href="privacy.html">Privacy Policy</a> &bull;
             <a href="https://github.com/shriramsingh/touchproof-community/issues" target="_blank" rel="noopener">Report Issue</a> &bull;
             <a href="mailto:dev.shriramsingh@gmail.com">Contact Support</a>
