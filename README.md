@@ -24,6 +24,25 @@ TouchProof is a lightweight, privacy-focused Android utility that draws an armor
 
 ---
 
+## 🚀 Release History & What's New
+
+### Version 1.1 (VersionCode: 2) — October 2026 [Latest]
+* **🕉️ Full Sanskrit (संस्कृतम्) Localization:** End-to-end native Sanskrit translation alongside Hindi and English.
+* **🎛️ Tactile 3D Switch Toggles:** Elevated 3D thumbs, slate tracks, and clear checkmark feedback.
+* **📱 Dual-Sensor Pocket Fusion:** Accelerometer tilt + proximity fusion preventing flat-desk blackouts.
+* **💡 Permanent Unlock Badge:** Floating unlock badge stays bright by default so you never lose your target.
+* **🌐 Direct Community Links:** Live community hub and privacy policy integration.
+
+### Version 1.0 (VersionCode: 1) — October 2026
+* **Initial Production Release:**
+  * 1-Tap transparent touch shield overlay.
+  * In-Call Ear & Cheek Guard.
+  * Pitch-Black OLED battery saver in pocket.
+  * Android Quick Settings Tile & 1x1 Home Widget.
+  * Zero internet permissions, 100% private and offline.
+
+---
+
 ## 🐛 Bug Reports & Feedback
 
 If you encounter an issue or have a feature request:

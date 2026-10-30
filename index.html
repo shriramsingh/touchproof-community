@@ -389,6 +389,84 @@
         footer a:hover {
             text-decoration: underline;
         }
+        /* Changelog & Release History */
+        .changelog-section {
+            max-width: 900px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .timeline-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-card.latest {
+            border-color: rgba(0, 229, 255, 0.4);
+            box-shadow: 0 10px 35px rgba(0, 229, 255, 0.1);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .badge-release {
+            display: inline-block;
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--cyan-accent);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 6px;
+            padding: 0.25rem 0.65rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .changelog-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .changelog-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        .changelog-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--cyan-accent);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -400,6 +478,7 @@
         <nav>
             <a href="#features">Features</a>
             <a href="#screenshots">Screenshots</a>
+            <a href="#changelog">What's New</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&id=com.touchproof.app" target="_blank" rel="noopener" class="btn-store-nav">
                 <span>🛍️ Get on Indus Appstore</span> &rarr;
@@ -479,6 +558,45 @@
                 <img src="assets/screenshots/02_shield_active.png" alt="Shield Active & Guarded">
                 <img src="assets/screenshots/03_ear_guard.png" alt="Smart In-Call Ear Guard">
                 <img src="assets/screenshots/04_quick_tile.png" alt="Quick Settings Integration">
+            </div>
+        </section>
+
+        <section class="changelog-section" id="changelog">
+            <h2 class="section-title">Release History &amp; What's New</h2>
+            <p class="section-sub">Track every major upgrade, new capability, and performance enhancement.</p>
+
+            <div class="timeline-card latest">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <span>Version 1.1</span>
+                        <span class="badge-release">Latest Production Build</span>
+                    </div>
+                    <span class="timeline-date">October 2026 &bull; VersionCode 2</span>
+                </div>
+                <ul class="changelog-list">
+                    <li><strong>Full Sanskrit (&#x0938;&#x0902;&#x0938;&#x094D;&#x0915;&#x0943;&#x0924;&#x092E;&#x094D;) Language Support:</strong> Complete end-to-end regional translation tailored for Indian users on Indus Appstore alongside Hindi (&#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;) and English.</li>
+                    <li><strong>Tactile 3D Switch Toggles:</strong> Redesigned settings controls with elevated 3D tactile thumbs, high-contrast slate tracks, and clear checkmark indicators.</li>
+                    <li><strong>Dual-Sensor Fusion (Pocket &amp; Tilt Detection):</strong> Smart sensor fusion prevents false blackout triggers when resting flat on tables or desks while reliably detecting true pocket orientation.</li>
+                    <li><strong>Always-Visible Unlock Badge:</strong> Floating unlock badge stays bright and prominent by default so you can dismiss the shield effortlessly without fumbling.</li>
+                    <li><strong>In-App Support &amp; Community Links:</strong> Direct connection to the official public community portal and live online privacy policy.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <span>Version 1.0</span>
+                        <span class="badge-release" style="background: rgba(148, 163, 184, 0.15); color: #94a3b8; border-color: rgba(148, 163, 184, 0.3);">Initial Launch</span>
+                    </div>
+                    <span class="timeline-date">October 2026 &bull; VersionCode 1</span>
+                </div>
+                <ul class="changelog-list">
+                    <li><strong>1-Tap Armored Screen Lock:</strong> Invisible touch barrier that keeps media playing in pockets without accidental touch disruption.</li>
+                    <li><strong>In-Call Ear Guard:</strong> Automatic ear and cheek shield protection against accidental mute, hold, keypad presses, or hangups during phone calls.</li>
+                    <li><strong>Pitch-Black OLED Mode:</strong> Turns pixels 100% black in pocket mode to save battery on AMOLED/OLED displays.</li>
+                    <li><strong>Quick Settings Tile:</strong> 1-tap lock directly from the Android notification tray.</li>
+                    <li><strong>100% Offline &amp; Private:</strong> Zero internet permissions, zero telemetry, zero trackers.</li>
+                </ul>
             </div>
         </section>
 
