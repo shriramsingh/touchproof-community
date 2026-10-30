@@ -397,90 +397,100 @@
             display: block;
         }
 
-        /* Hero QR Popover */
-        .qr-popover-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-
-        .btn-qr-trigger {
-            display: inline-flex;
+        /* Unified Hero Download Station */
+        .hero-download-unit {
+            display: flex;
             align-items: center;
-            gap: 0.6rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            font-family: var(--font-heading);
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 0.85rem 1.4rem;
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .btn-qr-trigger:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .hero-qr-popover {
-            position: absolute;
-            top: calc(100% + 14px);
-            left: 50%;
-            transform: translateX(-50%) translateY(8px);
-            background: rgba(15, 20, 31, 0.96);
+            justify-content: space-between;
+            gap: 2rem;
+            max-width: 680px;
+            margin: 0 auto 3.5rem;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 20, 31, 0.78);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 229, 255, 0.35);
-            border-radius: 20px;
-            padding: 1.25rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 229, 255, 0.18);
-            width: 230px;
-            text-align: center;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 100;
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 35px rgba(0, 229, 255, 0.08);
+            text-align: left;
         }
 
-        .hero-qr-popover.active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
+        .download-direct {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
         }
 
-        .popover-qr-box {
-            background: #ffffff;
-            padding: 8px;
-            border-radius: 12px;
-            display: inline-block;
-            margin-bottom: 0.75rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        .download-direct .btn-primary-hero {
+            width: fit-content;
         }
 
-        .popover-qr-box img {
-            width: 140px;
-            height: 140px;
-            display: block;
+        .download-trust-notes {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
-        .popover-qr-info strong {
-            display: block;
-            color: #ffffff;
-            font-size: 0.85rem;
-            margin-bottom: 0.2rem;
+        .download-trust-notes span {
+            color: var(--cyan-accent);
         }
 
-        .popover-qr-info span {
-            display: block;
+        .download-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
             color: var(--text-muted);
             font-size: 0.75rem;
-            line-height: 1.3;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .divider-line {
+            width: 1px;
+            height: 30px;
+            background: var(--border-subtle);
+        }
+
+        .download-qr-side {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            flex: 1;
+        }
+
+        .qr-box-hero {
+            background: #ffffff;
+            padding: 7px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        .qr-box-hero img {
+            width: 95px;
+            height: 95px;
+            display: block;
+        }
+
+        .qr-guide strong {
+            display: block;
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .qr-guide p {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            line-height: 1.35;
+            margin: 0;
         }
 
         /* Stats & Trust Bar */
@@ -1149,7 +1159,19 @@
                 grid-template-columns: 1fr;
                 padding: 1.75rem;
             }
-            .qr-popover-wrapper {
+            .hero-download-unit {
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                margin-bottom: 2.5rem;
+                justify-content: center;
+            }
+            .download-direct {
+                align-items: center;
+            }
+            .download-divider,
+            .download-qr-side {
                 display: none;
             }
             .app-showcase-section {
@@ -1212,24 +1234,32 @@
             <h1>Armored Screen Touch &amp;<br>Ear Guard for Android.</h1>
             <p>TouchProof draws an invisible, protective touch shield over running apps. Listen to YouTube music and podcasts in your pocket without accidental touches, and prevent accidental cheek hangups during phone calls.</p>
             
-            <div class="hero-cta-group">
-                <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&amp;id=com.touchproof.app" target="_blank" rel="noopener" class="btn-primary-hero">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
-                    <span>Download on Indus Appstore</span>
-                </a>
-                <div class="qr-popover-wrapper">
-                    <button type="button" class="btn-qr-trigger" id="heroQrBtn" aria-label="Scan with Phone" title="Scan with Phone Camera">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M7 17h.01M17 17h.01M7 7h.01M17 7h.01"></path></svg>
-                        <span>Scan with Phone</span>
-                    </button>
-                    <div class="hero-qr-popover" id="heroQrPopover">
-                        <div class="popover-qr-box">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;margin=6&amp;data=https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details%26id=com.touchproof.app" alt="Indus Appstore QR Code">
-                        </div>
-                        <div class="popover-qr-info">
-                            <strong>Point phone camera</strong>
-                            <span>Opens directly on Indus Appstore</span>
-                        </div>
+            <!-- Unified Hero Download Station -->
+            <div class="hero-download-unit">
+                <div class="download-direct">
+                    <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&amp;id=com.touchproof.app" target="_blank" rel="noopener" class="btn-primary-hero">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Download on Indus Appstore</span>
+                    </a>
+                    <div class="download-trust-notes">
+                        <span>&#x2713; 100% Free &amp; Offline</span>
+                        <span>&#x2713; Zero Trackers</span>
+                    </div>
+                </div>
+
+                <div class="download-divider">
+                    <span class="divider-line"></span>
+                    <span>OR</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <div class="download-qr-side">
+                    <div class="qr-box-hero">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&amp;margin=4&amp;data=https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details%26id=com.touchproof.app" alt="PhonePe Indus Appstore QR Code">
+                    </div>
+                    <div class="qr-guide">
+                        <strong>Scan with Phone</strong>
+                        <p>On a PC or laptop? Point your phone camera here to open the Indus Appstore.</p>
                     </div>
                 </div>
             </div>
@@ -1627,22 +1657,7 @@
 
     <!-- Interactive Scripts: Accordion and Back-to-Top -->
     <script>
-        // 1. Hero QR Popover toggle
-        const heroQrBtn = document.getElementById('heroQrBtn');
-        const heroQrPopover = document.getElementById('heroQrPopover');
-        if (heroQrBtn && heroQrPopover) {
-            heroQrBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                heroQrPopover.classList.toggle('active');
-            });
-            document.addEventListener('click', (e) => {
-                if (!heroQrPopover.contains(e.target) && e.target !== heroQrBtn) {
-                    heroQrPopover.classList.remove('active');
-                }
-            });
-        }
-
-        // 2. Interactive FAQ Accordion
+        // 1. Interactive FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
