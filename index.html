@@ -225,42 +225,6 @@
             text-align: center;
         }
 
-        /* Interactive Language Selector */
-        .lang-switcher {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
-            border-radius: 9999px;
-            padding: 4px;
-            margin-bottom: 1.5rem;
-            gap: 4px;
-        }
-
-        .lang-btn {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-family: var(--font-heading);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.35rem 0.9rem;
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .lang-btn:hover {
-            color: #ffffff;
-        }
-
-        .lang-btn.active {
-            background: rgba(0, 229, 255, 0.15);
-            color: var(--cyan-accent);
-            border: 1px solid rgba(0, 229, 255, 0.3);
-            box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
-        }
-
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -301,10 +265,6 @@
             background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #00e5ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            min-height: 2.2em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .hero p {
@@ -313,7 +273,6 @@
             max-width: 720px;
             margin: 0 auto 2.5rem;
             line-height: 1.6;
-            min-height: 3.2em;
         }
 
         .hero-cta-group {
@@ -1120,22 +1079,15 @@
     <!-- Hero Section -->
     <main class="container">
         <section class="hero">
-            <!-- Interactive Language Switcher -->
-            <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
-                <button class="lang-btn" data-lang="hi">🇮🇳 हिन्दी</button>
-                <button class="lang-btn" data-lang="sa">🕉️ संस्कृतम्</button>
-            </div>
-
             <div>
-                <div class="status-badge" id="hero-badge">
+                <div class="status-badge">
                     <span class="status-dot"></span>
-                    <span id="hero-badge-text">Version 1.1 Active &bull; Native Multilingual</span>
+                    <span>Version 1.1 Active &bull; Native Multilingual</span>
                 </div>
             </div>
 
-            <h1 id="hero-title">Armored Screen Touch &amp;<br>Ear Guard for Android.</h1>
-            <p id="hero-desc">TouchProof draws an invisible, protective touch shield over running apps. Listen to YouTube music and podcasts in your pocket without accidental touches, and prevent accidental cheek hangups during phone calls.</p>
+            <h1>Armored Screen Touch &amp;<br>Ear Guard for Android.</h1>
+            <p>TouchProof draws an invisible, protective touch shield over running apps. Listen to YouTube music and podcasts in your pocket without accidental touches, and prevent accidental cheek hangups during phone calls.</p>
             
             <div class="hero-cta-group">
                 <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&amp;id=com.touchproof.app" target="_blank" rel="noopener" class="btn-primary-hero">
@@ -1514,41 +1466,9 @@
         </div>
     </footer>
 
-    <!-- Interactive Scripts: Language Switcher, Accordion, and Back-to-Top -->
+    <!-- Interactive Scripts: Accordion and Back-to-Top -->
     <script>
-        // 1. Interactive Language Switcher
-        const langData = {
-            en: {
-                badge: "Version 1.1 Active &bull; Native Multilingual",
-                title: "Armored Screen Touch &<br>Ear Guard for Android.",
-                desc: "TouchProof draws an invisible, protective touch shield over running apps. Listen to YouTube music and podcasts in your pocket without accidental touches, and prevent accidental cheek hangups during phone calls."
-            },
-            hi: {
-                badge: "संस्करण 1.1 सक्रिय &bull; 100% ऑफ़लाइन व सुरक्षित",
-                title: "जेब में स्क्रीन टच व कॉल्स<br>के लिए अभेद्य कवच।",
-                desc: "पॉकेट में फोन रखें और यूट्यूब, संगीत व पॉडकास्ट सुनें बिना किसी अनचाहे टच के। इनकमिंग और एक्टिव कॉल्स के दौरान गाल या कान से फोन कटने से रोकें।"
-            },
-            sa: {
-                badge: "संस्करणम् १.१ सक्रियम् &bull; १००% अफलाइन",
-                title: "यन्त्रस्य स्पर्शरोधकम्<br>कर्णरक्षकं च कवचम्।",
-                desc: "चलच्चित्र-श्रवणसमये स्यूते स्थापितस्य यन्त्रस्य अनैच्छिक-स्पर्शनिवारणम्। दूरभाष-संभाषणकाले कपोल-स्पर्शात् संभाषण-विच्छेदं निवारयति।"
-            }
-        };
-
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const lang = btn.getAttribute('data-lang');
-                if (langData[lang]) {
-                    document.getElementById('hero-badge-text').innerHTML = langData[lang].badge;
-                    document.getElementById('hero-title').innerHTML = langData[lang].title;
-                    document.getElementById('hero-desc').innerHTML = langData[lang].desc;
-                }
-            });
-        });
-
-        // 2. Interactive FAQ Accordion
+        // 1. Interactive FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
