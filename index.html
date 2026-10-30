@@ -67,6 +67,7 @@
             --purple-glow: rgba(139, 92, 246, 0.35);
             --emerald-accent: #10b981;
             --amber-accent: #f59e0b;
+            --rose-accent: #f43f5e;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
@@ -127,7 +128,7 @@
             justify-content: space-between;
             gap: 2rem;
             width: 100%;
-            max-width: 1120px;
+            max-width: 1140px;
             background: rgba(12, 16, 26, 0.75);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -224,6 +225,42 @@
             text-align: center;
         }
 
+        /* Interactive Language Selector */
+        .lang-switcher {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9999px;
+            padding: 4px;
+            margin-bottom: 1.5rem;
+            gap: 4px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .lang-btn:hover {
+            color: #ffffff;
+        }
+
+        .lang-btn.active {
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--cyan-accent);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
+        }
+
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -237,6 +274,7 @@
             color: var(--cyan-accent);
             margin-bottom: 1.75rem;
             box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+            transition: all 0.3s ease;
         }
 
         .status-dot {
@@ -263,6 +301,10 @@
             background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #00e5ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            min-height: 2.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero p {
@@ -271,6 +313,7 @@
             max-width: 720px;
             margin: 0 auto 2.5rem;
             line-height: 1.6;
+            min-height: 3.2em;
         }
 
         .hero-cta-group {
@@ -325,11 +368,20 @@
             transform: translateY(-2px);
         }
 
+        /* Hero Device & Desktop QR Section */
+        .hero-visual-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
         /* Realistic Smartphone Mockup in Hero */
         .phone-mockup-wrapper {
             position: relative;
-            max-width: 320px;
-            margin: 0 auto;
+            max-width: 310px;
             perspective: 1000px;
         }
 
@@ -339,7 +391,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 360px;
-            height: 580px;
+            height: 560px;
             background: radial-gradient(circle, rgba(0, 229, 255, 0.25) 0%, rgba(139, 92, 246, 0.2) 50%, transparent 70%);
             filter: blur(40px);
             z-index: 0;
@@ -386,6 +438,49 @@
             display: block;
         }
 
+        /* Desktop Scan-to-Install Card */
+        .desktop-qr-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 260px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .qr-image-wrapper {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            display: inline-block;
+        }
+
+        .qr-image-wrapper img {
+            width: 140px;
+            height: 140px;
+            display: block;
+        }
+
+        .desktop-qr-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .desktop-qr-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin: 0;
+        }
+
         /* Stats & Trust Bar */
         .stats-strip {
             display: grid;
@@ -395,7 +490,7 @@
             border: 1px solid var(--border-subtle);
             border-radius: 20px;
             padding: 2rem 2.5rem;
-            margin: 4rem auto;
+            margin: 4.5rem auto 5.5rem;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
@@ -422,6 +517,93 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+        }
+
+        /* Problem vs Solution Section */
+        .comparison-section {
+            margin-bottom: 6rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .comparison-card {
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            position: relative;
+        }
+
+        .comparison-card.problem {
+            background: rgba(244, 63, 94, 0.04);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+        }
+
+        .comparison-card.solution {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.06) 0%, rgba(16, 185, 129, 0.06) 100%);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.1);
+        }
+
+        .comparison-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .comparison-badge.problem {
+            background: rgba(244, 63, 94, 0.12);
+            color: var(--rose-accent);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+        }
+
+        .comparison-badge.solution {
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--cyan-accent);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+        }
+
+        .comparison-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+        }
+
+        .comparison-list li .icon-cross {
+            color: var(--rose-accent);
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .comparison-list li .icon-check {
+            color: var(--cyan-accent);
+            font-weight: 800;
+            flex-shrink: 0;
         }
 
         /* Section Headings */
@@ -744,6 +926,40 @@
             font-size: 1.05rem;
         }
 
+        /* Floating Back-to-Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(18, 24, 38, 0.85);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            color: var(--cyan-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            background: var(--cyan-accent);
+            color: #06080e;
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border-subtle);
@@ -835,6 +1051,9 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
             }
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -859,6 +1078,9 @@
                 grid-template-columns: 1fr;
                 padding: 1.75rem;
             }
+            .desktop-qr-card {
+                display: none;
+            }
             .footer-grid {
                 grid-template-columns: 1fr;
             }
@@ -879,6 +1101,7 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
+                    <li><a href="#comparison">Why TouchProof</a></li>
                     <li><a href="#screenshots">Screenshots</a></li>
                     <li><a href="#changelog">What's New</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -897,32 +1120,54 @@
     <!-- Hero Section -->
     <main class="container">
         <section class="hero">
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>Version 1.1 Active &bull; English &bull; हिन्दी &bull; संस्कृतम्</span>
+            <!-- Interactive Language Switcher -->
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
+                <button class="lang-btn" data-lang="hi">🇮🇳 हिन्दी</button>
+                <button class="lang-btn" data-lang="sa">🕉️ संस्कृतम्</button>
             </div>
-            <h1>Armored Screen Touch &amp;<br>Ear Guard for Android.</h1>
-            <p>TouchProof draws an invisible, protective touch shield over running apps. Listen to YouTube music and podcasts in your pocket without accidental touches, and prevent accidental cheek hangups during phone calls.</p>
+
+            <div>
+                <div class="status-badge" id="hero-badge">
+                    <span class="status-dot"></span>
+                    <span id="hero-badge-text">Version 1.1 Active &bull; Native Multilingual</span>
+                </div>
+            </div>
+
+            <h1 id="hero-title">Armored Screen Touch &amp;<br>Ear Guard for Android.</h1>
+            <p id="hero-desc">TouchProof draws an invisible, protective touch shield over running apps. Listen to YouTube music and podcasts in your pocket without accidental touches, and prevent accidental cheek hangups during phone calls.</p>
             
             <div class="hero-cta-group">
                 <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&amp;id=com.touchproof.app" target="_blank" rel="noopener" class="btn-primary-hero">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
-                    <span>Download on PhonePe Indus Appstore</span>
+                    <span>Download on Indus Appstore</span>
                 </a>
-                <a href="https://github.com/shriramsingh/touchproof-community" target="_blank" rel="noopener" class="btn-secondary-hero">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    <span>View Community Hub</span>
+                <a href="https://github.com/shriramsingh/touchproof-community/releases" target="_blank" rel="noopener" class="btn-secondary-hero">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Universal APK (GitHub)</span>
                 </a>
             </div>
 
-            <!-- Sleek Smartphone Device Mockup -->
-            <div class="phone-mockup-wrapper">
-                <div class="phone-mockup-halo"></div>
-                <div class="phone-mockup">
-                    <div class="phone-camera-slit"></div>
-                    <div class="phone-screen">
-                        <img src="assets/screenshots/01_one_tap_lock.png" alt="TouchProof Dashboard on Android">
+            <!-- Hero Device & Desktop Scan QR Section -->
+            <div class="hero-visual-container">
+                <!-- Sleek Smartphone Device Mockup -->
+                <div class="phone-mockup-wrapper">
+                    <div class="phone-mockup-halo"></div>
+                    <div class="phone-mockup">
+                        <div class="phone-camera-slit"></div>
+                        <div class="phone-screen">
+                            <img src="assets/screenshots/01_one_tap_lock.png" alt="TouchProof Dashboard on Android">
+                        </div>
                     </div>
+                </div>
+
+                <!-- Desktop Quick Scan Card -->
+                <div class="desktop-qr-card">
+                    <div class="qr-image-wrapper">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;margin=6&amp;data=https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details%26id=com.touchproof.app" alt="Indus Appstore QR Code">
+                    </div>
+                    <h4>Scan with Phone</h4>
+                    <p>Point your phone camera to download TouchProof directly from PhonePe Indus Appstore.</p>
                 </div>
             </div>
         </section>
@@ -944,6 +1189,65 @@
             <div class="stat-item">
                 <div class="stat-number">3</div>
                 <div class="stat-label">Languages (EN &bull; HI &bull; SA)</div>
+            </div>
+        </section>
+
+        <!-- Problem vs Solution Comparison Section -->
+        <section class="comparison-section" id="comparison">
+            <div class="section-header">
+                <span class="section-tag">Before vs After</span>
+                <h2 class="section-title">The Accidental Touch Problem — Solved.</h2>
+                <p class="section-desc">See the immediate difference TouchProof makes every single day.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <!-- Without TouchProof -->
+                <div class="comparison-card problem">
+                    <div class="comparison-badge problem">&#x2717; Without TouchProof</div>
+                    <h3>The Daily Frustrations</h3>
+                    <ul class="comparison-list">
+                        <li>
+                            <span class="icon-cross">&#x2717;</span>
+                            <span>YouTube videos and Spotify playlists pause or skip randomly inside your pants pocket or backpack.</span>
+                        </li>
+                        <li>
+                            <span class="icon-cross">&#x2717;</span>
+                            <span>Ear and cheek contact during phone calls accidentally mutes your mic, dials numbers, or disconnects the call.</span>
+                        </li>
+                        <li>
+                            <span class="icon-cross">&#x2717;</span>
+                            <span>Sweat, rain droplets, or workout clothes trigger frustrating ghost touches while running or cycling.</span>
+                        </li>
+                        <li>
+                            <span class="icon-cross">&#x2717;</span>
+                            <span>Displays remain brightly lit at full backlight inside bags, overheating your phone and wasting battery life.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- With TouchProof Armor -->
+                <div class="comparison-card solution">
+                    <div class="comparison-badge solution">&#x2713; With TouchProof Armor</div>
+                    <h3>Worry-Free Background Play</h3>
+                    <ul class="comparison-list">
+                        <li>
+                            <span class="icon-check">&#x2713;</span>
+                            <span>Uninterrupted pocket playback: Media streams flawlessly while all touch and gesture inputs are locked.</span>
+                        </li>
+                        <li>
+                            <span class="icon-check">&#x2713;</span>
+                            <span>Smart In-Call Ear Guard auto-shields your display during voice calls so cheek hangups are 100% prevented.</span>
+                        </li>
+                        <li>
+                            <span class="icon-check">&#x2713;</span>
+                            <span>Sweaty fingers or workout gear can't disrupt your running fitness tracker, navigation, or recipes.</span>
+                        </li>
+                        <li>
+                            <span class="icon-check">&#x2713;</span>
+                            <span>Dual-sensor fusion turns OLED displays 100% pitch black in your pocket, dramatically conserving battery.</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -1163,6 +1467,11 @@
         </section>
     </main>
 
+    <!-- Floating Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
     <!-- Professional Footer -->
     <footer>
         <div class="footer-grid">
@@ -1177,6 +1486,7 @@
                 <h5>Product</h5>
                 <ul>
                     <li><a href="#features">Features</a></li>
+                    <li><a href="#comparison">Why TouchProof</a></li>
                     <li><a href="#screenshots">Screenshots</a></li>
                     <li><a href="#changelog">What's New</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -1186,7 +1496,7 @@
                 <h5>Download</h5>
                 <ul>
                     <li><a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&amp;id=com.touchproof.app" target="_blank" rel="noopener">PhonePe Indus Appstore</a></li>
-                    <li><a href="https://github.com/shriramsingh/touchproof-community" target="_blank" rel="noopener">GitHub Releases</a></li>
+                    <li><a href="https://github.com/shriramsingh/touchproof-community/releases" target="_blank" rel="noopener">GitHub Releases (APK)</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -1204,8 +1514,41 @@
         </div>
     </footer>
 
-    <!-- Interactive Vanilla JS for Accordion -->
+    <!-- Interactive Scripts: Language Switcher, Accordion, and Back-to-Top -->
     <script>
+        // 1. Interactive Language Switcher
+        const langData = {
+            en: {
+                badge: "Version 1.1 Active &bull; Native Multilingual",
+                title: "Armored Screen Touch &<br>Ear Guard for Android.",
+                desc: "TouchProof draws an invisible, protective touch shield over running apps. Listen to YouTube music and podcasts in your pocket without accidental touches, and prevent accidental cheek hangups during phone calls."
+            },
+            hi: {
+                badge: "संस्करण 1.1 सक्रिय &bull; 100% ऑफ़लाइन व सुरक्षित",
+                title: "जेब में स्क्रीन टच व कॉल्स<br>के लिए अभेद्य कवच।",
+                desc: "पॉकेट में फोन रखें और यूट्यूब, संगीत व पॉडकास्ट सुनें बिना किसी अनचाहे टच के। इनकमिंग और एक्टिव कॉल्स के दौरान गाल या कान से फोन कटने से रोकें।"
+            },
+            sa: {
+                badge: "संस्करणम् १.१ सक्रियम् &bull; १००% अफलाइन",
+                title: "यन्त्रस्य स्पर्शरोधकम्<br>कर्णरक्षकं च कवचम्।",
+                desc: "चलच्चित्र-श्रवणसमये स्यूते स्थापितस्य यन्त्रस्य अनैच्छिक-स्पर्शनिवारणम्। दूरभाष-संभाषणकाले कपोल-स्पर्शात् संभाषण-विच्छेदं निवारयति।"
+            }
+        };
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const lang = btn.getAttribute('data-lang');
+                if (langData[lang]) {
+                    document.getElementById('hero-badge-text').innerHTML = langData[lang].badge;
+                    document.getElementById('hero-title').innerHTML = langData[lang].title;
+                    document.getElementById('hero-desc').innerHTML = langData[lang].desc;
+                }
+            });
+        });
+
+        // 2. Interactive FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
@@ -1215,6 +1558,19 @@
                     item.classList.add('active');
                 }
             });
+        });
+
+        // 3. Floating Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 350) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
