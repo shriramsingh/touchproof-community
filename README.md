@@ -5,6 +5,8 @@ Welcome to the official public community repository for **TouchProof: Screen Tou
 * **Live Website:** [https://shriramsingh.github.io/touchproof-community/](https://shriramsingh.github.io/touchproof-community/)
 * **Privacy Policy:** [https://shriramsingh.github.io/touchproof-community/privacy.html](https://shriramsingh.github.io/touchproof-community/privacy.html)
 * **Bug Reports & Feature Requests:** [GitHub Issues](https://github.com/shriramsingh/touchproof-community/issues)
+* **Latest Production Release:** `v1.1` (Version Code `2`)
+* **Supported Languages:** English, Hindi (हिन्दी), Sanskrit (संस्कृतम्)
 
 ---
 
@@ -18,6 +20,7 @@ TouchProof is a lightweight, privacy-focused Android utility that draws an armor
 - **Dual-Sensor Pocket Detection:** Automatically dims your display in pockets or bags to prevent mistouches and save battery.
 - **Quick Settings Tile:** Lock touches directly from your Android notification tray with 1 tap.
 - **100% Offline & Private:** Zero internet permission, zero analytics, zero trackers.
+- **Native Multilingual:** Full localization in English, Hindi (हिन्दी), and Sanskrit (संस्कृतम्).
 
 ---
 
