@@ -327,21 +327,21 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Device & Desktop QR Section */
+        /* Hero Device Showcase */
         .hero-visual-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
             margin: 0 auto;
         }
 
         /* Realistic Smartphone Mockup in Hero */
         .phone-mockup-wrapper {
             position: relative;
-            max-width: 310px;
+            max-width: 320px;
+            width: 100%;
             perspective: 1000px;
+            margin: 0 auto;
         }
 
         .phone-mockup-halo {
@@ -349,10 +349,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 360px;
-            height: 560px;
-            background: radial-gradient(circle, rgba(0, 229, 255, 0.25) 0%, rgba(139, 92, 246, 0.2) 50%, transparent 70%);
-            filter: blur(40px);
+            width: 380px;
+            height: 580px;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.28) 0%, rgba(139, 92, 246, 0.22) 50%, transparent 70%);
+            filter: blur(45px);
             z-index: 0;
             pointer-events: none;
         }
@@ -397,47 +397,90 @@
             display: block;
         }
 
-        /* Desktop Scan-to-Install Card */
-        .desktop-qr-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 260px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .qr-image-wrapper {
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        /* Hero QR Popover */
+        .qr-popover-wrapper {
+            position: relative;
             display: inline-block;
         }
 
-        .qr-image-wrapper img {
+        .btn-qr-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.85rem 1.4rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-qr-trigger:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-qr-popover {
+            position: absolute;
+            top: calc(100% + 14px);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: rgba(15, 20, 31, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            border-radius: 20px;
+            padding: 1.25rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 229, 255, 0.18);
+            width: 230px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 100;
+        }
+
+        .hero-qr-popover.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .popover-qr-box {
+            background: #ffffff;
+            padding: 8px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .popover-qr-box img {
             width: 140px;
             height: 140px;
             display: block;
         }
 
-        .desktop-qr-card h4 {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 700;
+        .popover-qr-info strong {
+            display: block;
             color: #ffffff;
+            font-size: 0.85rem;
+            margin-bottom: 0.2rem;
         }
 
-        .desktop-qr-card p {
-            font-size: 0.8rem;
+        .popover-qr-info span {
+            display: block;
             color: var(--text-muted);
-            line-height: 1.4;
-            margin: 0;
+            font-size: 0.75rem;
+            line-height: 1.3;
         }
 
         /* Stats & Trust Bar */
@@ -857,32 +900,101 @@
             font-weight: 800;
         }
 
-        /* Community CTA Banner */
-        .community-cta {
-            background: linear-gradient(135deg, #111827 0%, #172554 50%, #1e1b4b 100%);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 4rem 2.5rem;
-            text-align: center;
+        /* Bottom App Showcase Section */
+        .app-showcase-section {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            border-radius: 28px;
+            padding: 3.5rem;
             margin-bottom: 6rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 229, 255, 0.08);
             position: relative;
             overflow: hidden;
         }
 
-        .community-cta h2 {
+        .showcase-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--cyan-accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .showcase-content h2 {
             font-family: var(--font-heading);
-            font-size: clamp(2rem, 3.5vw, 2.6rem);
+            font-size: clamp(2rem, 3vw, 2.4rem);
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .community-cta p {
+        .showcase-content p {
             color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
             font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        .showcase-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .showcase-qr-panel {
+            background: rgba(6, 8, 14, 0.7);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .showcase-qr-box {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            display: inline-block;
+        }
+
+        .showcase-qr-box img {
+            width: 150px;
+            height: 150px;
+            display: block;
+        }
+
+        .qr-verify-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #10b981;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .showcase-qr-text p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin: 0;
         }
 
         /* Floating Back-to-Top Button */
@@ -1037,7 +1149,18 @@
                 grid-template-columns: 1fr;
                 padding: 1.75rem;
             }
-            .desktop-qr-card {
+            .qr-popover-wrapper {
+                display: none;
+            }
+            .app-showcase-section {
+                grid-template-columns: 1fr;
+                padding: 2.25rem 1.5rem;
+                text-align: center;
+            }
+            .showcase-actions {
+                justify-content: center;
+            }
+            .showcase-qr-panel {
                 display: none;
             }
             .footer-grid {
@@ -1094,11 +1217,25 @@
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
                     <span>Download on Indus Appstore</span>
                 </a>
+                <div class="qr-popover-wrapper">
+                    <button type="button" class="btn-qr-trigger" id="heroQrBtn" aria-label="Scan with Phone" title="Scan with Phone Camera">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M7 17h.01M17 17h.01M7 7h.01M17 7h.01"></path></svg>
+                        <span>Scan with Phone</span>
+                    </button>
+                    <div class="hero-qr-popover" id="heroQrPopover">
+                        <div class="popover-qr-box">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;margin=6&amp;data=https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details%26id=com.touchproof.app" alt="Indus Appstore QR Code">
+                        </div>
+                        <div class="popover-qr-info">
+                            <strong>Point phone camera</strong>
+                            <span>Opens directly on Indus Appstore</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Hero Device & Desktop Scan QR Section -->
+            <!-- Centered Hero Device Showcase -->
             <div class="hero-visual-container">
-                <!-- Sleek Smartphone Device Mockup -->
                 <div class="phone-mockup-wrapper">
                     <div class="phone-mockup-halo"></div>
                     <div class="phone-mockup">
@@ -1107,15 +1244,6 @@
                             <img src="assets/screenshots/01_one_tap_lock.png" alt="TouchProof Dashboard on Android">
                         </div>
                     </div>
-                </div>
-
-                <!-- Desktop Quick Scan Card -->
-                <div class="desktop-qr-card">
-                    <div class="qr-image-wrapper">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;margin=6&amp;data=https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details%26id=com.touchproof.app" alt="Indus Appstore QR Code">
-                    </div>
-                    <h4>Scan with Phone</h4>
-                    <p>Point your phone camera to download TouchProof directly from PhonePe Indus Appstore.</p>
                 </div>
             </div>
         </section>
@@ -1415,19 +1543,37 @@
             </div>
         </section>
 
-        <!-- Community CTA Banner -->
-        <section class="community-cta">
-            <h2>Join the TouchProof Community</h2>
-            <p>TouchProof is crafted with transparent privacy principles. Found a bug, have a feature idea, or want to contribute? The community repository is open for everyone.</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://github.com/shriramsingh/touchproof-community/issues" target="_blank" rel="noopener" class="btn-primary-hero">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    <span>Open GitHub Issues</span>
-                </a>
-                <a href="mailto:dev.shriramsingh@gmail.com" class="btn-secondary-hero">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    <span>Email Support</span>
-                </a>
+        <!-- App Showcase & Conversion Banner -->
+        <section class="app-showcase-section">
+            <div class="showcase-content">
+                <div class="showcase-badge">
+                    <span class="status-dot"></span>
+                    <span>100% Free &bull; Zero Trackers &bull; Offline Privacy</span>
+                </div>
+                <h2>Get TouchProof for Android</h2>
+                <p>Armored touch protection, in-call ear guard, and dual-sensor OLED battery savings in one lightweight utility. Available now on PhonePe Indus Appstore.</p>
+                <div class="showcase-actions">
+                    <a href="https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details&amp;id=com.touchproof.app" target="_blank" rel="noopener" class="btn-primary-hero">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Download on Indus Appstore</span>
+                    </a>
+                    <a href="https://github.com/shriramsingh/touchproof-community/issues" target="_blank" rel="noopener" class="btn-secondary-hero">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <span>Community Issues</span>
+                    </a>
+                </div>
+            </div>
+            <div class="showcase-qr-panel">
+                <div class="showcase-qr-box">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;margin=6&amp;data=https://www.phonepeappstore.com/apps/tools/touchproof/com.touchproof.app/?page=details%26id=com.touchproof.app" alt="Indus Appstore QR Code">
+                </div>
+                <div class="showcase-qr-text">
+                    <div class="qr-verify-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>PhonePe Indus Appstore Verified</span>
+                    </div>
+                    <p>Point phone camera to install directly</p>
+                </div>
             </div>
         </section>
     </main>
@@ -1481,7 +1627,22 @@
 
     <!-- Interactive Scripts: Accordion and Back-to-Top -->
     <script>
-        // 1. Interactive FAQ Accordion
+        // 1. Hero QR Popover toggle
+        const heroQrBtn = document.getElementById('heroQrBtn');
+        const heroQrPopover = document.getElementById('heroQrPopover');
+        if (heroQrBtn && heroQrPopover) {
+            heroQrBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                heroQrPopover.classList.toggle('active');
+            });
+            document.addEventListener('click', (e) => {
+                if (!heroQrPopover.contains(e.target) && e.target !== heroQrBtn) {
+                    heroQrPopover.classList.remove('active');
+                }
+            });
+        }
+
+        // 2. Interactive FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
